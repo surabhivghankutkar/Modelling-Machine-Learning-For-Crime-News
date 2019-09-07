@@ -6,7 +6,6 @@ app_name = 'crime_analysis'
 urlpatterns = [
     url(r'^$', views.crime_home, name = "home"),
     url(r'^result/$', views.result, name = "result"),
-    url(r'^demo_piechart/$', views.demo_piechart, name = "demo_piechart"),
     url(r'^ht/$', views.scrapeht, name="ht"),
     url(r'^ie/$', views.scrapeie, name="ie"),
     url(r'^it/$', views.scrapeit, name="it"),

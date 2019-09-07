@@ -1,0 +1,15 @@
+{
+  "name": "python-nvd3",
+  "homepage": "https://github.com/areski/python-nvd3",
+  "version": "0.13.10",
+  "_release": "0.13.10",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.13.10",
+    "commit": "b1260669e32876de0d0dc0064b02a75bef49cac8"
+  },
+  "_source": "https://github.com/areski/python-nvd3.git",
+  "_target": "^0.13.10",
+  "_originalSource": "https://github.com/areski/python-nvd3.git",
+  "_direct": true
+}
