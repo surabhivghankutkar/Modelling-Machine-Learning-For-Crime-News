@@ -9,19 +9,36 @@ import csv
 def crime_home(request):
 	form = NewspaperURL(request.POST or None)
 	if form.is_valid():
-		data = form['enter_url'].value()
-		if data == "Hindustan Times":
+		data = "paper"
+		if 'analyze_ht' in request.POST:
 			scrapeht(data)
-		elif data == "Indian Express":
+		elif 'analyze_ie' in request.POST:
 			scrapeie(data)
 		else:
 			scrapeit(data)
 		form.save()
 		return redirect('crime_analysis:result')
 	context = {
-		'form' : form
+		'form': form
 	}
 	return render(request, 'home.html', context)
+
+'''def crime_home(request):
+	form = NewspaperURL(request.POST or None)
+	if form.is_valid():
+		data = form['enter_url'].value()
+		if data == "Hindustan Times":
+			scrapeht()
+		elif data == "Indian Express":
+			scrapeie()
+		else:
+			scrapeit()
+		form.save()
+		return redirect('crime_analysis:result')
+	context = {
+		'form' : form
+	}
+	return render(request, 'home.html', context)'''
 
 def result(request):
 	return render(request, 'result.html')
@@ -49,7 +66,6 @@ def scrapeht(data):
 		dt = t.split(" ")
 		date1 = dt[0] + " " + dt[1] + " " + dt[2]
 		writer.writerow([heading, summary_text, date1])
-	# print("Heading: " + heading,"Summary: " + summary_text,sep='\n')
 
 	for art in soup.find_all('div', class_="media-body"):
 		head = art.find('div', class_="media-heading headingfour").a.text

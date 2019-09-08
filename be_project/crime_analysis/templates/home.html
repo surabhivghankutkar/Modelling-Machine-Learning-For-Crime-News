@@ -3,126 +3,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>HOME</title>
     <style>
-        body{
-            background-color: #0f121f;
-            background-repeat-y: no-repeat;
-            color: #fff;
-        }
-        body *{
-            font-family: Ubuntu;
-        }
-        h1, h2, h3, h4, h5{
-            font-weight: normal;
-            margin: 0;
-        }
-        a, a:hover, a:visited{
-            color: #fff;
-            text-decoration: none;
+        .div1 {
+            width: 1350px;
+            height: 300px;
+            border: 1px solid blue;
+            box-sizing: border-box;
         }
 
-        .wrapper{
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        div.wrapper h1{
-            text-align: center;
-            margin:100px auto;
-            font-size: 2.4em;
-        }
-
-        header{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding: 20px 0;
-        }
-
-        nav{
-            justify-self: end;
-        }
-
-        nav li{
-            display: inline-block;
-            margin-left: 20px;
-        }
-
-        nav button{
-            background: none;
-            color: #fff;
-            cursor: pointer;
-            border: 0;
-            font-size: 1em;
-        }
-
-        .claims{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-gap: 30px;
-        }
-
-        .c{
-            padding:10px;
-            border: 1px solid #00dba0;
+        .container {
             position: relative;
-            padding-bottom: 40px;
+            width: 100%;
+            max-width: 400px;
         }
 
-        .site-form{
-            margin-top: 60px;
-            border: 1px solid #00dba0;
-            padding: 20px;
+        .container img {
+            width: 100%;
+            height: auto;
         }
 
-        .site-form input, .site-form textarea{
-            display: block;
-            margin: 20px 0 0 0;
-            padding: 10px;
+        .container .btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            background-color: #f1f1f1;
+            color: black;
+            font-size: 16px;
+            padding: 16px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
         }
 
-        a.highlight{
-            border: 1px solid #00dba0;
-            padding: 10px;
-            border-radius: 4px;
-            color: #00dba0
-        }
-
-        .helptext, .helptext ul{
-            margin: 0 auto 20px;
-            color:#bbb;
-            font-size: 0.9em;
-            display: block;
-        }
-
-        .errorlist li{
-            padding:10px;
-            list-style-type: none;
-            border: 1px solid #ff5722;
-            color: #ff5722;
-            margin:10px 0;
-        }
-
-        .errorlist{
-            padding: 0;
-        }
-
-        .site-form input[type="submit"]{
-            background: #00dba0;
-            border: 0;
-            color: #fff;
-            font-size: 1.2em;
-            border-radius: 4px;
-            margin:10px 0;
+        .container .btn:hover {
+            background-color: black;
+            color: white;
         }
     </style>
 </head>
 <body>
-<h1>Welcome to Crime Analysis</h1>
-<font color="white" size="20px">Enter URL or Newspaper Name</font><br><br><br><br>
-<form method='POST'> {% csrf_token %}
-{{ form.as_p }}
-<input type='submit' value='Continue'>
-</form>
+<font color="white" size="20px">Welcome to Crime Analysis</font><br><br>
+<br><br>
+<!--<div class="div1">
+    <img src="{% static 'hindtimes.jpg' %}" width="1350" height="200">
+    <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <input type="button" name="analyze_ht" value="Analyze">
+    </form>
+</div>-->
+<br><br>
+<div class="div1">
+    <img src="{% static 'indianexp.png' %}" width="1350" height="200">
+    <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <input type="button" name="analyze_ie" value="Analyze">
+    </form>
+</div>
+<br><br>
+<div class="div1">
+    <img src="{% static 'indtdy.png' %}" width="1350" height="200">
+    <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <input type="button" name="analyze_it" value="Analyze">
+    </form>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br>
+<div class="container">
+  <img src="{% static 'hindtimes.jpg' %}" alt="Snow" style="width:100%">
+    <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_ht">Analyze Hindustan Times</button>
+    </form>
+</div>
+<br><br>
+<div class="container">
+  <img src="{% static 'indianexp.png' %}" alt="Snow" style="width:100%">
+  <button class="btn">Button</button>
+</div>
+<br><br>
+<div class="container">
+  <img src="{% static 'indtdy.png' %}" alt="Snow" style="width:100%">
+  <button class="btn">Button</button>
+</div>
 </body>
 </html>

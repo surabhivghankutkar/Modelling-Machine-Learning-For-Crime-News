@@ -1,0 +1,9 @@
+body{
+    background-color: #0f121f;
+    background-repeat-y: no-repeat;
+    color: #fff
+}
+
+.img{
+    background-image: url(hindtimes.jpg);
+}
