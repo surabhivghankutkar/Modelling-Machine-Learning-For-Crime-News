@@ -7,21 +7,38 @@
     <title>HOME</title>
     <style>
         .div1 {
-            width: 1350px;
-            height: 300px;
-            border: 1px solid blue;
-            box-sizing: border-box;
+            float: right;
+            width: 500px;
+            height: 450px;
+        }
+
+        .div1 .header {
+            background-color: #F4Af1B;
+            width: 500px;
+            height: 80px;
+        }
+
+        .div1 .about {
+            width: 500px;
+            height: 370px;
+            background-color: #5B0E2D;
+        }
+
+        .div1 .p {
+            padding: 2px;
+            color: #F4Af1B;
+            font-size: 20px
         }
 
         .container {
+            float: left;
             position: relative;
-            width: 100%;
-            max-width: 400px;
+            width: 800px;
         }
 
         .container img {
             width: 100%;
-            height: auto;
+            height: 450px;
         }
 
         .container .btn {
@@ -30,8 +47,8 @@
             left: 50%;
             transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
-            background-color: #f1f1f1;
-            color: black;
+            background-color: #0f121f;
+            color: white;
             font-size: 16px;
             padding: 16px 30px;
             border: none;
@@ -41,8 +58,13 @@
         }
 
         .container .btn:hover {
-            background-color: black;
-            color: white;
+            background-color: white;
+            color: black;
+        }
+
+        .image {
+        float: left;
+        margin-right: 200px;
         }
     </style>
 </head>
@@ -56,9 +78,9 @@
         <input type="button" name="analyze_ht" value="Analyze">
     </form>
 </div>-->
-<br><br>
+<!--<br><br>
 <div class="div1">
-    <img src="{% static 'indianexp.png' %}" width="1350" height="200">
+    <img src="{% static 'indianexp.jpg' %}" width="1350" height="200">
     <form method='POST'> {% csrf_token %}
         {{ form.as_p }}
         <input type="button" name="analyze_ie" value="Analyze">
@@ -66,32 +88,82 @@
 </div>
 <br><br>
 <div class="div1">
-    <img src="{% static 'indtdy.png' %}" width="1350" height="200">
+    <img src="{% static 'indtdy.jpeg' %}" width="1350" height="200">
     <form method='POST'> {% csrf_token %}
         {{ form.as_p }}
         <input type="button" name="analyze_it" value="Analyze">
     </form>
 </div>
+<br><br><br><br><br><br><br><br>-->
 
-
-
-<br><br><br><br><br><br><br><br>
 <div class="container">
-  <img src="{% static 'hindtimes.jpg' %}" alt="Snow" style="width:100%">
+  <img src="{% static 'hindtimes.jpeg' %}" style="width:100%">
     <form method='POST'> {% csrf_token %}
         {{ form.as_p }}
         <button class="btn" name="analyze_ht">Analyze Hindustan Times</button>
     </form>
 </div>
-<br><br>
-<div class="container">
-  <img src="{% static 'indianexp.png' %}" alt="Snow" style="width:100%">
-  <button class="btn">Button</button>
+<div class="div1">
+    <div class="header">
+        <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About Hindustan Times</b></font></h1>
+    </div>
+    <div class="about">
+        <div class="p">
+            &nbsp;&nbsp;&nbsp;&nbsp;<b><i>Hindustan Times</i></b> is an Indian English language daily newspaper founded in 1924 with roots in the Indian independence movement of the period. Hindustan Times was
+            inaugurated by Mahatma Gandhi and known for supporting the Congress party. The newspaper is owned by Congress Rajya Sabha M.P.Shobhana Bhartia.
+        </div><br>
+        <div class="p">
+            &nbsp;&nbsp;&nbsp;&nbsp;Hindustan Times is one of the largest newspapers in India, by circulation. According to the Audit Bureau of Circulations, it is has a circulation of 993,645 copies as
+            of November 2017. The Indian Readership survey 2014 revealed that HT is the second most widely read English newspaper in India after <i>The Times of India</i>.<br><br>
+            <b>Type   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Daily Newspaper<br>
+            <b>Editor-in-chief   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sukumar Ranganathan
+        </div>
+    </div>
 </div>
-<br><br>
+
 <div class="container">
-  <img src="{% static 'indtdy.png' %}" alt="Snow" style="width:100%">
-  <button class="btn">Button</button>
+  <img src="{% static 'indianexp.jpg' %}" style="width:100%">
+  <button class="btn">Analyze The Indian Express</button>
 </div>
+<div class="div1">
+    <div class="header">
+        <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About Indian Express</b></font></h1>
+    </div>
+    <div class="about">
+        <div class="p">
+            &nbsp;&nbsp;&nbsp;&nbsp;<b><i>The Indian Express</i></b> is an English language Indian daily newspaper. It is published in Mumbai by Indian Express Group. In 1999, eight
+            years after the group's founder Ramnath Goenka's death in 1991, the group was split between the family members. The southern editions took the name <i>The New Indian Express</i>
+            , while the northern editions, based in Mumbai, retained the original Indian Express name, with "The" prefixed to the title.
+        </div><br>
+        <div class="p">
+            &nbsp;&nbsp;&nbsp;&nbsp;The Indian Express's main newsroom is in Noida. Mumbai ia a bureau. A national desk brings out all editions in Delhi. The management, however, still sits in Mumbai<br><br>
+            <b>Type   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Daily Newspaper<br>
+            <b>Editor-in-chief   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Raj Kamal Jha
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <img src="{% static 'indtdy.jpeg' %}" alt="Snow" style="width:100%">
+  <button class="btn">Analyze India Today</button>
+</div>
+<div class="div1">
+    <div class="header">
+        <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About India Today</b></font></h1>
+    </div>
+    <div class="about">
+        <div class="p">
+            &nbsp;&nbsp;&nbsp;&nbsp;<b><i>India Today</i></b> is  a weekly Indian English language news magazine published by Living Media India Ltd. It is the most widely circulated magazine
+            in India, with a readership of close to 8 million. In 2014, <i>India Today</i> launched a new online opinion-oriented site called the DailyO.
+        </div><br>
+        <div class="p">
+            &nbsp;&nbsp;&nbsp;&nbsp;India Today was established in 1975 by Vidya Vilas Purie, with his daughter Madhu Trehan as its editor and his son Aroon Purie as its publisher. At present,
+            India Today is also published in Hindi, Kannada, Tamil, Malayalam and Telugu. The India Today news channel was launched on 22 May 2015.<br><br>
+            <b>Type   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Weekly News Magazine<br>
+            <b>Editor-in-chief   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aroon Purie
+        </div>
+    </div>
+</div>
+<marquee><div class="image"><br><br><br><br><br><br><br><br><img src="{% static 'ty.gif' %}" alt="Thank You" style="width:400px height:400px"></div></marquee>
 </body>
 </html>

@@ -12,6 +12,8 @@ def crime_home(request):
 		data = "paper"
 		if 'analyze_ht' in request.POST:
 			scrapeht(data)
+			form.save()
+			return redirect('crime_analysis:scrapeht')
 		elif 'analyze_ie' in request.POST:
 			scrapeie(data)
 		else:
