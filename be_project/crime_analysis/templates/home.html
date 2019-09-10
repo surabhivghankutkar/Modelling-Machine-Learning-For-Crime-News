@@ -71,30 +71,6 @@
 <body>
 <font color="white" size="20px">Welcome to Crime Analysis</font><br><br>
 <br><br>
-<!--<div class="div1">
-    <img src="{% static 'hindtimes.jpg' %}" width="1350" height="200">
-    <form method='POST'> {% csrf_token %}
-        {{ form.as_p }}
-        <input type="button" name="analyze_ht" value="Analyze">
-    </form>
-</div>-->
-<!--<br><br>
-<div class="div1">
-    <img src="{% static 'indianexp.jpg' %}" width="1350" height="200">
-    <form method='POST'> {% csrf_token %}
-        {{ form.as_p }}
-        <input type="button" name="analyze_ie" value="Analyze">
-    </form>
-</div>
-<br><br>
-<div class="div1">
-    <img src="{% static 'indtdy.jpeg' %}" width="1350" height="200">
-    <form method='POST'> {% csrf_token %}
-        {{ form.as_p }}
-        <input type="button" name="analyze_it" value="Analyze">
-    </form>
-</div>
-<br><br><br><br><br><br><br><br>-->
 
 <div class="container">
   <img src="{% static 'hindtimes.jpeg' %}" style="width:100%">
@@ -121,6 +97,7 @@
     </div>
 </div>
 
+
 <div class="container">
   <img src="{% static 'indianexp.jpg' %}" style="width:100%">
   <button class="btn">Analyze The Indian Express</button>
@@ -143,6 +120,7 @@
     </div>
 </div>
 
+
 <div class="container">
   <img src="{% static 'indtdy.jpeg' %}" alt="Snow" style="width:100%">
   <button class="btn">Analyze India Today</button>
@@ -164,6 +142,58 @@
         </div>
     </div>
 </div>
+
+
+<div class="container">
+  <img src="{% static 'ndtv.jpg' %}" style="width:100%">
+    <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_ndtv">Analyze NDTV</button>
+    </form>
+</div>
+<div class="div1">
+    <div class="header">
+        <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About NDTV</b></font></h1>
+    </div>
+    <div class="about">
+        <div class="p">
+            &nbsp;&nbsp;&nbsp;&nbsp;<b><i>New Delhi Television Limited (NDTV)</i></b> is a Indian television media company founded in 1988 by Radhika Roy,
+            a journalist. In a talk on the 25th anniversary of NDTV, her husband Prannoy Roy said that he joined NDTV a few weeks after
+            Radhika had founded it.[3] NDTV is an acronym for the original name of the company. NDTV's first show, The World This Week began in November 1988.
+        </div><br>
+        <div class="p">
+            <b>Type   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Public<br>
+            <b>Executive Editor   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nidhi Razdan
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+  <img src="{% static 'n18.jpg' %}" style="width:100%">
+    <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_n18">Analyze News18</button>
+    </form>
+</div>
+<div class="div1">
+    <div class="header">
+        <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About News18</b></font></h1>
+    </div>
+    <div class="about">
+        <div class="p">
+            &nbsp;&nbsp;&nbsp;&nbsp;<b><i>New Delhi Television Limited (NDTV)</i></b> is a Indian television media company founded in 1988 by Radhika Roy,
+            a journalist. In a talk on the 25th anniversary of NDTV, her husband Prannoy Roy said that he joined NDTV a few weeks after
+            Radhika had founded it.[3] NDTV is an acronym for the original name of the company. NDTV's first show, The World This Week began in November 1988.
+        </div><br>
+        <div class="p">
+            <b>Type   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Public<br>
+            <b>Executive Editor   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nidhi Razdan
+        </div>
+    </div>
+</div>
+
+
 <marquee><div class="image"><br><br><br><br><br><br><br><br><img src="{% static 'ty.gif' %}" alt="Thank You" style="width:400px height:400px"></div></marquee>
 </body>
 </html>
