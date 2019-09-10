@@ -182,17 +182,44 @@
     </div>
     <div class="about">
         <div class="p">
-            &nbsp;&nbsp;&nbsp;&nbsp;<b><i>New Delhi Television Limited (NDTV)</i></b> is a Indian television media company founded in 1988 by Radhika Roy,
-            a journalist. In a talk on the 25th anniversary of NDTV, her husband Prannoy Roy said that he joined NDTV a few weeks after
-            Radhika had founded it.[3] NDTV is an acronym for the original name of the company. NDTV's first show, The World This Week began in November 1988.
+            &nbsp;&nbsp;&nbsp;&nbsp;<b><i>CNN-News18 (originally CNN-IBN)</i></b> is an Indian English-language news television channel founded by Rajdeep Sardesai located in Noida, Uttar Pradesh. It is
+            currently owned by Network 18. CNN provides international coverage for the channel, while Indian Broadcasting Network concentrates on Indian and local reports.
         </div><br>
         <div class="p">
-            <b>Type   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Public<br>
-            <b>Executive Editor   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nidhi Razdan
+            &nbsp;&nbsp;&nbsp;&nbsp;In May 2014, Reliance Industries announced it would be taking over Network18. The move was touted as "the biggest-ever deal in the Indian media space".
+            Reliance Industries already had indirect control of the TV18 network by virtue of investments it made in Network18 starting from January 2012.<br><br>
+            <b>Type   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;News Television Channel<br>
+            <b>Executive Editor   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bhupendra Chaubey
         </div>
     </div>
 </div>
 
+
+<div class="container">
+  <img src="{% static 'decc.jpg' %}" style="width:100%">
+    <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_decc">Analyze Deccan Chronicle</button>
+    </form>
+</div>
+<div class="div1">
+    <div class="header">
+        <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About DeccanChronicle</b></font></h1>
+    </div>
+    <div class="about">
+        <div class="p">
+            &nbsp;&nbsp;&nbsp;&nbsp;<b><i>Deccan Chronicle</i></b> is an Indian English-language daily newspaper founded by Rajagopal Mudaliar in the 1930s &
+            currently owned by SREI. It is published in Hyderabad, Telangana, by Deccan Chronicle Holdings Limited (DCHL). The newspaper's name derives from the originating place,
+            the Deccan regions of India. Deccan Chronicle has eight editions in Andhra Pradesh and Telangana. They also publish from Chennai, Bengaluru and Kochi.
+        </div><br>
+        <div class="p">
+            The Indian Premier League cricket franchise of the Deccan Chargers was owned by Deccan Chronicle. The Deccan Chargers represented the city of Hyderabad in the Indian
+            Premier League.<br><br>
+            <b>Type   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Daily Newspaper<br>
+            <b>Editor-in-chief   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A. T. Jayanti
+        </div>
+    </div>
+</div>
 
 <marquee><div class="image"><br><br><br><br><br><br><br><br><img src="{% static 'ty.gif' %}" alt="Thank You" style="width:400px height:400px"></div></marquee>
 </body>

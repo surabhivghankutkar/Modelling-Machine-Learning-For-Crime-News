@@ -18,8 +18,10 @@ def crime_home(request):
 			scrapeit(data)
 		elif 'analyze_ndtv' in requests.POST:
 			scrapendtv(data)
-		else:
+		elif 'analyze_n18' in requests.POST:
 			scrapen18(data)
+		else:
+			scrapedecc(data)
 		form.save()
 		return redirect('crime_analysis:result')
 	context = {
@@ -175,4 +177,24 @@ def scrapen18(data):
 			Month = ''.join(month)
 			date1 = Month + " " + dt[1] + " " + dt[2]
 			writer.writerow([title, summary, date1])
+	return response
+
+def scrapedecc(data):
+	response = HttpResponse(content_type='csv')
+	response['Content-Disposition'] = 'attachment; filename = "analysis_data.csv"'
+	writer = csv.writer(response)
+	writer.writerow(['Headline', 'Summary', 'Date'])
+
+	source = requests.get('https://www.deccanchronicle.com/nation').text
+	soup = BeautifulSoup(source, 'lxml')
+	for news in soup.find_all('div', class_='col-sm-12 col-xs-12 tstry-feed-sml-a'):
+		sub = "https://www.deccanchronicle.com" + news.a['href']
+		source1 = requests.get(sub).text
+		soup1 = BeautifulSoup(source1, 'lxml')
+		title = soup1.find('h1', class_='headline').find('span').text
+		dop = soup1.find('div', class_='col-sm-6 col-xs-12 noPadding noMargin').text
+		dt = dop.split(" ")
+		date1 = dt[2] + " " + dt[3] + " " + dt[4]
+		summ = soup1.find('div', class_='story-body').find('p').text
+		writer.writerow([title, summ, date1])
 	return response
