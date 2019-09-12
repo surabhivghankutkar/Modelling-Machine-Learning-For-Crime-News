@@ -31,7 +31,7 @@
         }
 
         .container {
-            float: left;
+            float: center;
             position: relative;
             width: 800px;
         }
@@ -79,7 +79,8 @@
         <button class="btn" name="analyze_ht">Analyze Hindustan Times</button>
     </form>
 </div>
-<div class="div1">
+
+<!--<div class="div1">
     <div class="header">
         <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About Hindustan Times</b></font></h1>
     </div>
@@ -95,14 +96,18 @@
             <b>Editor-in-chief   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sukumar Ranganathan
         </div>
     </div>
-</div>
+</div>-->
 
 
 <div class="container">
   <img src="{% static 'indianexp.jpg' %}" style="width:100%">
-  <button class="btn">Analyze The Indian Express</button>
+  <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_ie">Analyze Indian Express</button>
+    </form>
 </div>
-<div class="div1">
+
+<!--<div class="div1">
     <div class="header">
         <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About Indian Express</b></font></h1>
     </div>
@@ -118,14 +123,17 @@
             <b>Editor-in-chief   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Raj Kamal Jha
         </div>
     </div>
-</div>
+</div>-->
 
 
 <div class="container">
   <img src="{% static 'indtdy.jpeg' %}" alt="Snow" style="width:100%">
-  <button class="btn">Analyze India Today</button>
+  <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_it">Analyze India Today</button>
+    </form>
 </div>
-<div class="div1">
+<!--<div class="div1">
     <div class="header">
         <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About India Today</b></font></h1>
     </div>
@@ -141,7 +149,7 @@
             <b>Editor-in-chief   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aroon Purie
         </div>
     </div>
-</div>
+</div>-->
 
 
 <div class="container">
@@ -151,7 +159,8 @@
         <button class="btn" name="analyze_ndtv">Analyze NDTV</button>
     </form>
 </div>
-<div class="div1">
+
+<!--<div class="div1">
     <div class="header">
         <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About NDTV</b></font></h1>
     </div>
@@ -166,7 +175,7 @@
             <b>Executive Editor   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nidhi Razdan
         </div>
     </div>
-</div>
+</div>-->
 
 
 <div class="container">
@@ -176,7 +185,8 @@
         <button class="btn" name="analyze_n18">Analyze News18</button>
     </form>
 </div>
-<div class="div1">
+
+<!--<div class="div1">
     <div class="header">
         <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About News18</b></font></h1>
     </div>
@@ -192,7 +202,7 @@
             <b>Executive Editor   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bhupendra Chaubey
         </div>
     </div>
-</div>
+</div>-->
 
 
 <div class="container">
@@ -202,7 +212,8 @@
         <button class="btn" name="analyze_decc">Analyze Deccan Chronicle</button>
     </form>
 </div>
-<div class="div1">
+
+<!--<div class="div1">
     <div class="header">
         <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About DeccanChronicle</b></font></h1>
     </div>
@@ -219,7 +230,61 @@
             <b>Editor-in-chief   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A. T. Jayanti
         </div>
     </div>
+</div>-->
+
+
+<div class="container">
+  <img src="{% static 'oneind.webp' %}" style="width:100%">
+    <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_oneind">Analyze One India</button>
+    </form>
 </div>
+
+<!--<div class="div1">
+    <div class="header">
+        <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About News18</b></font></h1>
+    </div>
+    <div class="about">
+        <div class="p">
+            &nbsp;&nbsp;&nbsp;&nbsp;<b><i>CNN-News18 (originally CNN-IBN)</i></b> is an Indian English-language news television channel founded by Rajdeep Sardesai located in Noida, Uttar Pradesh. It is
+            currently owned by Network 18. CNN provides international coverage for the channel, while Indian Broadcasting Network concentrates on Indian and local reports.
+        </div><br>
+        <div class="p">
+            &nbsp;&nbsp;&nbsp;&nbsp;In May 2014, Reliance Industries announced it would be taking over Network18. The move was touted as "the biggest-ever deal in the Indian media space".
+            Reliance Industries already had indirect control of the TV18 network by virtue of investments it made in Network18 starting from January 2012.<br><br>
+            <b>Type   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;News Television Channel<br>
+            <b>Executive Editor   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bhupendra Chaubey
+        </div>
+    </div>
+</div>-->
+
+
+<div class="container">
+  <img src="{% static 'otlkind.jpg' %}" style="width:100%">
+    <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_otlkind">Analyze Outlook India</button>
+    </form>
+</div>
+
+<!--<div class="div1">
+    <div class="header">
+        <h1 style="text-align:center"><font size=20px color="#5B0E2D"><b>About News18</b></font></h1>
+    </div>
+    <div class="about">
+        <div class="p">
+            &nbsp;&nbsp;&nbsp;&nbsp;<b><i>CNN-News18 (originally CNN-IBN)</i></b> is an Indian English-language news television channel founded by Rajdeep Sardesai located in Noida, Uttar Pradesh. It is
+            currently owned by Network 18. CNN provides international coverage for the channel, while Indian Broadcasting Network concentrates on Indian and local reports.
+        </div><br>
+        <div class="p">
+            &nbsp;&nbsp;&nbsp;&nbsp;In May 2014, Reliance Industries announced it would be taking over Network18. The move was touted as "the biggest-ever deal in the Indian media space".
+            Reliance Industries already had indirect control of the TV18 network by virtue of investments it made in Network18 starting from January 2012.<br><br>
+            <b>Type   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;News Television Channel<br>
+            <b>Executive Editor   -</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bhupendra Chaubey
+        </div>
+    </div>
+</div>-->
 
 <marquee><div class="image"><br><br><br><br><br><br><br><br><img src="{% static 'ty.gif' %}" alt="Thank You" style="width:400px height:400px"></div></marquee>
 </body>

@@ -12,4 +12,6 @@ urlpatterns = [
     url(r'^ndtv/$', views.scrapendtv, name="ndtv"),
     url(r'^n18/$', views.scrapen18, name="n18"),
     url(r'^decc/$', views.scrapedecc, name="decc"),
+    url(r'^oneind/$', views.scrapeoneind, name="oneind"),
+    url(r'^otlkind/$', views.scrapeotlkind, name="otlkind"),
 ]

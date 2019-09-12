@@ -16,12 +16,16 @@ def crime_home(request):
 			scrapeie(data)
 		elif 'analyze_it' in request.POST:
 			scrapeit(data)
-		elif 'analyze_ndtv' in requests.POST:
+		elif 'analyze_ndtv' in request.POST:
 			scrapendtv(data)
-		elif 'analyze_n18' in requests.POST:
+		elif 'analyze_n18' in request.POST:
 			scrapen18(data)
-		else:
+		elif 'analyze_decc' in request.POST:
 			scrapedecc(data)
+		elif 'analyze_oneind' in request.POST:
+			scrapeoneind(data)
+		else:
+			scrapeotlkind(data)
 		form.save()
 		return redirect('crime_analysis:result')
 	context = {
@@ -164,7 +168,10 @@ def scrapen18(data):
 			sub = news.p.a['href']
 			srcs = requests.get(sub).text
 			soup1 = BeautifulSoup(srcs, 'lxml')
-			summary = soup1.find('h2', class_='story-intro').text
+			summary = soup1.find('h2', class_='story-intro')
+			if summary == None:
+				continue
+			summary = summary.text
 			t = soup1.find('div', class_="author fleft").find('span').text
 			dt = t.split(" ")
 			dt1 = list(dt[0])
@@ -197,4 +204,43 @@ def scrapedecc(data):
 		date1 = dt[2] + " " + dt[3] + " " + dt[4]
 		summ = soup1.find('div', class_='story-body').find('p').text
 		writer.writerow([title, summ, date1])
+	return response
+
+def scrapeoneind(data):
+	response = HttpResponse(content_type='csv')
+	response['Content-Disposition'] = 'attachment; filename = "analysis_data.csv"'
+	writer = csv.writer(response)
+	writer.writerow(['Headline', 'Summary', 'Date'])
+
+	source = requests.get('https://www.oneindia.com/').text
+	soup = BeautifulSoup(source, 'lxml')
+	for news in soup.find_all('div', class_='news-desc'):
+		sub = news.a['href']
+		subarr = str(sub[0:5])
+		if "https" != subarr:
+			sub = "https://www.oneindia.com" + news.a['href']
+			source1 = requests.get(sub).text
+			soup1 = BeautifulSoup(source1, 'lxml')
+			title = soup1.find('h1', class_='heading').text
+			dt = soup1.find('div', class_='time-date date-time').find('span').text
+			dt1 = dt.split(" ")
+			date1 = dt1[3] + " " + dt1[4] + " " + dt1[5]
+			summmary = soup1.find('div', class_='oi-article-lt').find('p').text
+			writer.writerow([title, summmary, date1])
+	return response
+
+def scrapeotlkind(data):
+	response = HttpResponse(content_type='csv')
+	response['Content-Disposition'] = 'attachment; filename = "analysis_data.csv"'
+	writer = csv.writer(response)
+	writer.writerow(['Headline', 'Summary', 'Date'])
+
+	source = requests.get('https://www.outlookindia.com/website/section/national/19/').text
+	soup = BeautifulSoup(source, 'lxml')
+
+	for news in soup.find_all('div', class_='content_serach'):
+		title = news.find('div', class_='cont_head').find('a').text
+		summary = news.find('div', class_='descriptn').text
+		date1 = date.today()
+		writer.writerow([title, summary, date1])
 	return response
