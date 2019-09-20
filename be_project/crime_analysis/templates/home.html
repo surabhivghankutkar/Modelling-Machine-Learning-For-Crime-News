@@ -285,6 +285,21 @@
         </div>
     </div>
 </div>-->
+<div class="container">
+  <img src="{% static 'asian.jpeg' %}" style="width:100%">
+    <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_asian">Analyze Asian Ages</button>
+    </form>
+</div>
+
+<div class="container">
+  <img src="{% static 'daily.jpg' %}" style="width:100%">
+    <form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_daily">Analyze Daily Excelsior</button>
+    </form>
+</div>
 
 <marquee><div class="image"><br><br><br><br><br><br><br><br><img src="{% static 'ty.gif' %}" alt="Thank You" style="width:400px height:400px"></div></marquee>
 </body>

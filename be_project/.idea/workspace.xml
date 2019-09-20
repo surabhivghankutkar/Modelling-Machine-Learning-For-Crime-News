@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7acebbc8-7981-4866-9c54-6750173f3ebc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crime_analysis/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/crime_analysis/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crime_analysis/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crime_analysis/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crime_analysis/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/crime_analysis/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="169" column="28" lean-forward="true" selection-start-line="163" selection-start-column="4" selection-end-line="169" selection-end-column="28" />
+            <state relative-caret-position="496">
+              <caret line="229" column="47" lean-forward="true" selection-start-line="195" selection-start-column="4" selection-end-line="229" selection-end-column="47" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -28,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crime_analysis/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+            <state relative-caret-position="326">
+              <caret line="290" column="23" lean-forward="true" selection-start-line="290" selection-start-column="23" selection-end-line="290" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -42,16 +39,18 @@
                 <element signature="n#style#0;n#img#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/crime_analysis/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="527">
+              <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -74,7 +73,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crime_analysis/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="238">
               <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -123,10 +122,10 @@
         <option value="$PROJECT_DIR$/assets/style.css" />
         <option value="$PROJECT_DIR$/assets/newstyle.css" />
         <option value="$PROJECT_DIR$/crime_analysis/forms.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
-        <option value="$PROJECT_DIR$/crime_analysis/views.py" />
         <option value="$PROJECT_DIR$/crime_analysis/urls.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$PROJECT_DIR$/crime_analysis/templates/home.html" />
+        <option value="$PROJECT_DIR$/crime_analysis/views.py" />
       </list>
     </option>
   </component>
@@ -302,8 +301,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7663399" visible="true" weight="0.2514881" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7663399" visible="true" weight="0.2514881" />
       <window_info id="Structure" order="1" sideWeight="0.23366013" side_tool="true" weight="0.2514881" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -451,6 +451,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/crime_analysis/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/newstyle.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -460,38 +470,18 @@
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="169" column="28" lean-forward="true" selection-start-line="163" selection-start-column="4" selection-end-line="169" selection-end-column="28" />
+        <state relative-caret-position="496">
+          <caret line="229" column="47" lean-forward="true" selection-start-line="195" selection-start-column="4" selection-end-line="229" selection-end-column="47" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crime_analysis/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crime_analysis/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crime_analysis/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        <state relative-caret-position="326">
+          <caret line="290" column="23" lean-forward="true" selection-start-line="290" selection-start-column="23" selection-end-line="290" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -501,6 +491,18 @@
             <element signature="n#style#0;n#img#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crime_analysis/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -24,8 +24,12 @@ def crime_home(request):
 			scrapedecc(data)
 		elif 'analyze_oneind' in request.POST:
 			scrapeoneind(data)
-		else:
+		elif 'analyze_otlkind' in request.POST:
 			scrapeotlkind(data)
+		elif 'analyze_asian' in request.POST:
+			scrapeasian(data)
+		else:
+			scrapedaily(data)
 		form.save()
 		return redirect('crime_analysis:result')
 	context = {
@@ -243,4 +247,57 @@ def scrapeotlkind(data):
 		summary = news.find('div', class_='descriptn').text
 		date1 = date.today()
 		writer.writerow([title, summary, date1])
+	return response
+
+def scrapeasian(data):
+	response = HttpResponse(content_type='csv')
+	response['Content-Disposition'] = 'attachment; filename = "analysis_data.csv"'
+	writer = csv.writer(response)
+	writer.writerow(['Headline', 'Summary', 'Date'])
+
+	source = requests.get('https://www.asianage.com/india').text
+	soup = BeautifulSoup(source, 'lxml')
+
+	for news in soup.find_all('div', class_='top-stories-box col-lg-6 col-md-6 col-sm-6'):
+		title = news.h3.a.text
+		sub = "https://www.asianage.com" + news.h3.a['href']
+		source1 = requests.get(sub).text
+		soup1 = BeautifulSoup(source1, 'lxml')
+		summary = soup1.find('div', class_='storyBody').find('p').text
+		t = soup1.find('div', class_='col-sm-4 col-xs-12 date').text
+		dt = t.split(" ")
+		dop = dt[2] + " " + dt[3] + " " + dt[4]
+		writer.writerow([title, summary, dop])
+	return response
+
+def scrapedaily(data):
+	response = HttpResponse(content_type='csv')
+	response['Content-Disposition'] = 'attachment; filename = "analysis_data.csv"'
+	writer = csv.writer(response)
+	writer.writerow(['Headline', 'Summary', 'Date'])
+
+	source = requests.get('https://www.dailyexcelsior.com/national-news/').text
+	soup = BeautifulSoup(source, 'lxml')
+	title1 = soup.find('div', class_='td_module_4 td_module_wrap td-animation-stack').find('h3').find('a').text
+	summ = soup.find('div', class_='td-excerpt').text
+	summ1 = summ.split("\n")
+	summary1 = summ1[2]
+	date1 = date.today()
+	writer.writerow([title1, summary1, date1])
+
+	for news in soup.find_all('div', class_='item-details'):
+		title2 = news.h3.a.text
+		sub = news.h3.a['href']
+		source1 = requests.get(sub).text
+		soup1 = BeautifulSoup(source1, 'lxml')
+		summ2 = soup1.find('div', class_='td-post-content').find('p').text
+		summ3 = summ2.split("\n")
+		slen = len(summ3)
+		date2 = date.today()
+		if slen <= 1:
+			summary2 = summ3[0]
+			writer.writerow([title2, summary2, date2])
+		else:
+			summary2 = summ3[1]
+			writer.writerow([title2, summary2, date2])
 	return response
