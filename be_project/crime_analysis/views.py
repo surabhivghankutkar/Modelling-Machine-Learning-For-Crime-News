@@ -9,50 +9,42 @@ import csv
 def crime_home(request):
 	form = NewspaperURL(request.POST or None)
 	if form.is_valid():
-		data = "paper"
 		if 'analyze_ht' in request.POST:
-			scrapeht(data)
+			form.save()
+			return redirect('crime_analysis:ht')
 		elif 'analyze_ie' in request.POST:
-			scrapeie(data)
+			form.save()
+			return redirect('crime_analysis:ie')
 		elif 'analyze_it' in request.POST:
-			scrapeit(data)
+			form.save()
+			return redirect('crime_analysis:it')
 		elif 'analyze_ndtv' in request.POST:
-			scrapendtv(data)
+			form.save()
+			return redirect('crime_analysis:ndtv')
 		elif 'analyze_n18' in request.POST:
-			scrapen18(data)
+			form.save()
+			return redirect('crime_analysis:n18')
 		elif 'analyze_decc' in request.POST:
-			scrapedecc(data)
+			form.save()
+			return redirect('crime_analysis:decc')
 		elif 'analyze_oneind' in request.POST:
-			scrapeoneind(data)
+			form.save()
+			return redirect('crime_analysis:oneind')
 		elif 'analyze_otlkind' in request.POST:
-			scrapeotlkind(data)
+			form.save()
+			return redirect('crime_analysis:otlkind')
 		elif 'analyze_asian' in request.POST:
-			scrapeasian(data)
+			form.save()
+			return redirect('crime_analysis:asian')
+		elif 'analyze_daily' in request.POST:
+			form.save()
+			return redirect('crime_analysis:daily')
 		else:
-			scrapedaily(data)
-		form.save()
-		return redirect('crime_analysis:result')
+			return redirect('premodel:prehome')
 	context = {
 		'form': form
 	}
-	return render(request, 'home.html', context)
-
-'''def crime_home(request):
-	form = NewspaperURL(request.POST or None)
-	if form.is_valid():
-		data = form['enter_url'].value()
-		if data == "Hindustan Times":
-			scrapeht()
-		elif data == "Indian Express":
-			scrapeie()
-		else:
-			scrapeit()
-		form.save()
-		return redirect('crime_analysis:result')
-	context = {
-		'form' : form
-	}
-	return render(request, 'home.html', context)'''
+	return render(request, 'crime2.html', context)
 
 def result(request):
 	return render(request, 'result.html')
@@ -63,8 +55,7 @@ def scrapeht(data):
 	writer = csv.writer(response)
 	writer.writerow(['Headline', 'Summary', 'Date'])
 
-	URL = 'https://www.hindustantimes.com/cities'
-	source = requests.get(URL).text
+	source = requests.get('https://www.hindustantimes.com/cities').text
 	soup = BeautifulSoup(source, 'lxml')
 
 	for article in soup.find_all('div', {'class': 'random-content clearfix'}):
