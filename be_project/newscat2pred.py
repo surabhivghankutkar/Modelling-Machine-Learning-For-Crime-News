@@ -49,6 +49,7 @@ Training_X_Tfidf = Tfidf_vect.transform(testing['text_final'])
 print("\n\n*******************Prediction*******************\n\n")
 # predict the labels on validation dataset
 prediction_NB = Naive.predict(Training_X_Tfidf)
+print("********Naive Bayes********")
 print("\n", prediction_NB)
 answers= Encoder.inverse_transform(prediction_NB)
 print("\n", answers)
@@ -62,7 +63,7 @@ print("\n", answers)
 
 # predict the labels on validation dataset
 prediction_SVM = SVM.predict(Training_X_Tfidf)
-
+print("********SVM********")
 print("\n", prediction_SVM)
 answers1=Encoder.inverse_transform(prediction_SVM)
 #print("SVM Accuracy Score -> ",accuracy_score(answers1, testing['Label'])*100)
