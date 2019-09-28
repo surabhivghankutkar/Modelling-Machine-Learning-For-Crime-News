@@ -4,8 +4,10 @@ from . import views
 app_name = 'crime_analysis'
 
 urlpatterns = [
-    url(r'^$', views.crime_home, name = "home"),
+    url(r'^$', views.crime_home, name = "crime_home"),
+    url(r'^about/$', views.about, name="about"),
     url(r'^result/$', views.result, name = "result"),
+    url(r'^analyze_crime/$', views.analyze_crime, name="analyze_crime"),
     url(r'^ht/$', views.scrapeht, name="ht"),
     url(r'^ie/$', views.scrapeie, name="ie"),
     url(r'^it/$', views.scrapeit, name="it"),

@@ -1,10 +1,171 @@
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Analysis</title>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #5D8896;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #2B5664;
+}
+
+
+button {
+  background-color: #5D8896;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 3px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+
+</style>
 </head>
 <body>
-    <h1>Just checking</h1>
+<ul>
+    <li><h1><font color="white">&nbsp;&nbsp;&nbsp;&nbsp;Analysis</font></h1></li>
+</ul>
+<br>
+<br>
+
+<font color = "#2B5664">
+
+<table>
+  <tr>
+    <th>Headline</th>
+    <th>Naive Bayes</th>
+    <th>SVM</th>
+  </tr>
+  {% for head, ans1, ans2 in mapped %}
+  <tr>
+      <td><b>{{ head }}</b></td>
+      <td><b>{{ ans1 }}</b></td>
+      <td><b>{{ ans2 }}</b></td>
+  </tr>
+  {% endfor %}
+</table>
+</font>
+
+<br>
+<form method='POST'> {% csrf_token %}
+    {{ form.as_p }}
+    <center><button name="export">Export to PDF</button></center>
+</form>
 </body>
 </html>
+{% endblock content %}
+    <!--<table border="1">
+    <tr>
+        <font color = "#5D8896"><th><h2>Headlines</h2></th></font>
+
+    {% for head in headlines %}
+        <td><b>{{ head }}</b></td>
+    {% endfor %}
+    </tr>
+    <tr>
+        <font color = "#5D8896"> <th><h2>Naive Bayes</h2></th></font>
+    {% for ans in predictionNB %}
+        <td><b>{{ ans }}</b></td>
+    {% endfor %}
+    </tr>
+    <tr>
+        <font color = "#5D8896"> <th><h2>SVM</h2></th></font>
+    {% for ans in predictionSVM %}
+        <td><b>{{ ans }}</b></td>
+    {% endfor %}
+    </tr>
+
+</table>
+</font>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>HTML Table</h2>
+
+<table>
+  <tr>
+    <th>Headline</th>
+    <th>Naive Bayes</th>
+    <th>SVM</th>
+  </tr>
+  {% for head, ans1, ans2 in mapped %}
+  <tr>
+      <td><b>{{ head }}</b></td>
+      <td><b>{{ ans1 }}</b></td>
+      <td><b>{{ ans2 }}</b></td>
+  </tr>
+  {% endfor %}
+  <!--<tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Yoshi Tannamuri</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
+
+</body>
+</html>-->

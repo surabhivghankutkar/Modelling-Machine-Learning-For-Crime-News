@@ -7,6 +7,12 @@ import requests
 import csv
 
 def crime_home(request):
+	return render(request, 'home.html')
+
+def about(request):
+	return render(request, 'about.html')
+
+def analyze_crime(request):
 	form = NewspaperURL(request.POST or None)
 	if form.is_valid():
 		if 'analyze_ht' in request.POST:
@@ -44,7 +50,7 @@ def crime_home(request):
 	context = {
 		'form': form
 	}
-	return render(request, 'crime2.html', context)
+	return render(request, 'analyze.html', context)
 
 def result(request):
 	return render(request, 'result.html')
