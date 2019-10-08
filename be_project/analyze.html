@@ -1,0 +1,200 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #5D8896;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #2B5664;
+}
+
+img {
+  float: left;
+}
+
+button {
+  background-color: #5D8896;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 3px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a href="{% url 'crime_analysis:crime_home' %}">Home</a></li>
+  <li><a href="{% url 'crime_analysis:about' %}">About</a></li>
+  <li><a href="{% url 'crime_analysis:analyze_crime' %}">Analyze</a></li>
+</ul>
+<font face="arial" color="#2B5664" size="2"><b>
+<h1> <font color="#2B5664">&nbsp;&nbsp;&nbsp;&nbsp;Select the news resource.</h1>
+
+
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper1.png' %}" alt="Mumbai Mirror" height="150px" width="500px">
+	<br>
+	HT Media found its beginning in 1924 when its flagship newspaper, Hindustan Times was inaugurated by Mahatma Gandhi. HT Media has today grown to become one of India’s largest media companies.</p>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<form method='POST'> {% csrf_token %}
+       	{{ form.as_p }}
+       	<button class="btn" name="analyze_ht">Crawl Hindustan Times</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="btn" name="go">Analyze Hindustan Times</button>
+    </form>
+	<br><br><br><br><br><br>
+
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper2.png' %}" alt="Times Of India" height="150px" width="500px">
+	<br>
+	For over 75 years, The Indian Express Group of publications has been synonymous with excellence in journalism and a commitment to independence and fairness.</p>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<form method='POST'> {% csrf_token %}
+       	{{ form.as_p }}
+       	<button class="btn" name="analyze_ie">Crawl Indian Express</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="btn" name="go">Analyze Indian Express</button>
+    </form>
+	<br><br><br><br><br><br>
+
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper3.png' %}" alt="Mumbai Mirror" height="150px" width="500px">
+	<br>
+	The India Today Group is India's most respected and diversified media conglomerate that has created an enviable legacy of trust, credibility and admiration since the Group's inception over four decades ago. </p>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<form method='POST'> {% csrf_token %}
+       	{{ form.as_p }}
+       	<button class="btn" name="analyze_it">Crawl India Today</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="btn" name="go">Analyze India Today</button>
+    </form>
+	<br><br><br><br><br><br>
+
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper4.png' %}" alt="Times Of India" height="150px" width="500px">
+	<br>
+	New Delhi Television is, and has been for more than a quarter century, a pioneer in India’s news television and digital journalism.</p>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<form method='POST'> {% csrf_token %}
+       	{{ form.as_p }}
+       	<button class="btn" name="analyze_ndtv">Crawl NDTV</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="btn" name="go">Analyze NDTV</button>
+    </form>
+	<br><br><br><br><br><br>
+
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper5.png' %}" alt="Mumbai Mirror" height="150px" width="500px">
+	<br>
+	News18.com is the online arm of CNN News18 (formerly known as CNN IBN) with hard news as its core offering and interactivity as its key component.</p>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_n18">Crawl News18</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="btn" name="go">Analyze News18</button>
+    </form>
+	<br><br><br><br><br><br>
+
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper6.png' %}" alt="Times Of India" height="150px" width="500px">
+	<br>
+	Deccan Chronicle Holdings Limited (DCHL) publishes the largest circulated English newspaper in South India -- Deccan Chronicle, bringing you every day the most comprehensive bouquet of news and analysis.</p>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_decc">Crawl Deccan Chronicle</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="btn" name="go">Analyze Deccan Chronicle</button>
+    </form>
+	<br><br><br><br><br><br>
+
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper7.png' %}" alt="Times Of India" height="150px" width="500px">
+	<br>
+	Oneindia.com is a multi-lingual news platform, which serves news content in English and seven Indian Languages, Hindi, Tamil, Telugu, Malayalam, Kannada, Bengali and Gujarati.</p>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_oneind">Crawl One India</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="btn" name="go">Analyze One India</button>
+    </form>
+	<br><br><br><br><br><br>
+
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper8.png' %}" alt="Times Of India" height="150px" width="500px">
+	<br>
+	Outlook is a weekly general interest English news magazine published in India.</p>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_otlkind">Crawl Outlook India</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="btn" name="go">Analyze Outlook India</button>
+    </form>
+	<br><br><br><br><br><br>
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper9.png' %}" alt="Times Of India" height="150px" width="500px">
+	<br>
+	The Asian Age is an English-language Indian daily newspaper with editions published in Delhi, Mumbai and Kolkata.</p>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_asian">Crawl Asian Age</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="btn" name="go">Analyze Asian Age</button>
+    </form>
+	<br><br><br><br><br><br>
+
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper10.png' %}" alt="Times Of India" height="150px" width="500px">
+	<br>
+	The Daily Excelsior is an English-language newspaper published in Jammu, a city in the Indian state of Jammu and Kashmir.</p>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" name="analyze_asian">Crawl Daily Excelsior</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="btn" name="go">Analyze Daily Excelsior</button>
+    </form>
+	<br><br><br><br><br><br>
+    </b></font>
+
+</body>
+</html>

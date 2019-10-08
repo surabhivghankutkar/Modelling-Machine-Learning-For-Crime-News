@@ -5,6 +5,9 @@ from bs4 import BeautifulSoup
 from datetime import date
 import requests
 import csv
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+cm = 2.54
 
 def crime_home(request):
 	return render(request, 'home.html')
@@ -56,6 +59,46 @@ def result(request):
 	return render(request, 'result.html')
 
 def scrapeht(data):
+
+	'''doc = SimpleDocTemplate("analysis_data.csv", pagesize=letter)
+	# container for the 'Flowable' objects
+	elements = []
+
+	data = []
+	data.append(['Headlines', 'Summary', 'Date'])
+
+	source = requests.get('https://www.hindustantimes.com/cities').text
+	soup = BeautifulSoup(source, 'lxml')
+
+	for article in soup.find_all('div', {'class': 'random-content clearfix'}):
+		heading = article.h3.a.text
+		sub = article.h3.a['href']
+		srcs = requests.get(sub).text
+		soup1 = BeautifulSoup(srcs, 'lxml')
+		summary_text = ''
+		summary = soup1.find("div", class_="storyArea").find_all('h2')
+		for element in summary:
+			summary_text += '\n' + ''.join(element.find_all(text=True))
+		t = article.find('span', class_="time-dt").text
+		dt = t.split(" ")
+		date1 = dt[0] + " " + dt[1] + " " + dt[2]
+		data.append([heading, summary_text, date1])
+
+	for art in soup.find_all('div', class_="media-body"):
+		head = art.find('div', class_="media-heading headingfour").a.text
+		summ = art.p.text
+		t1 = art.find('span', class_="time-dt").text
+		dt1 = t1.split(" ")
+		date2 = dt1[0] + " " + dt1[1] + " " + dt1[2]
+		data.append([head, summ, date2])
+
+	t = Table(data)
+	# t.setStyle(TableStyle([('BACKGROUND', (1, 1), (-2, -2), colors.green),
+	#                      ('TEXTCOLOR', (0, 0), (1, -1), colors.red)]))
+	elements.append(t)
+	# write the document to disk
+	doc.build(elements)
+	return redirect('premodel:prehome')'''
 	response = HttpResponse(content_type='csv')
 	response['Content-Disposition'] = 'attachment; filename = "analysis_data.csv"'
 	writer = csv.writer(response)

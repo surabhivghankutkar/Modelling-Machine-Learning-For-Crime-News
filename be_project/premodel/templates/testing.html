@@ -70,12 +70,14 @@ button {
     <th>Headline</th>
     <th>Naive Bayes</th>
     <th>SVM</th>
+    <th>Random Forest</th>
   </tr>
-  {% for head, ans1, ans2 in mapped %}
+  {% for head, ans1, ans2, ans3 in mapped %}
   <tr>
       <td><b>{{ head }}</b></td>
       <td><b>{{ ans1 }}</b></td>
       <td><b>{{ ans2 }}</b></td>
+      <td><b>{{ ans3 }}</b></td>
   </tr>
   {% endfor %}
 </table>
