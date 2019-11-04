@@ -1,0 +1,286 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="css/ct-navbar.css" rel="stylesheet" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/ct-navbar.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+	<script>
+		window.onload = function() {
+            var chart1 = new CanvasJS.Chart("chartContainer1", {
+                animationEnabled: true, title: {
+                    text: "Naive Bayes Classification"
+	                },
+	            data: [{
+		            type: "pie",
+		            startAngle: 240,
+		            yValueFormatString: "##0.00\"%\"",
+		            indexLabel: "{label} {y}",
+		        dataPoints: [
+			        {y: {{ crime_percentnb }}, label: "Crime"},
+			        {y: {{ noncrime_percentnb }}, label: "Non Crime"}
+		            ]
+	            }]
+            });
+            chart1.render();
+
+            var chart2 = new CanvasJS.Chart("chartContainer2", {
+                animationEnabled: true, title: {
+                    text: "SVM Classification"
+	                },
+	            data: [{
+		            type: "pie",
+		            startAngle: 240,
+		            yValueFormatString: "##0.00\"%\"",
+		            indexLabel: "{label} {y}",
+		        dataPoints: [
+			        {y: {{ crime_percentsvm }}, label: "Crime"},
+			        {y: {{ noncrime_percentsvm }}, label: "Non Crime"}
+		            ]
+	            }]
+            });
+            chart2.render();
+
+            var chart3 = new CanvasJS.Chart("chartContainer3", {
+                animationEnabled: true, title: {
+                    text: "Random Forest Classification"
+	                },
+	            data: [{
+		            type: "pie",
+		            startAngle: 240,
+		            yValueFormatString: "##0.00\"%\"",
+		            indexLabel: "{label} {y}",
+		        dataPoints: [
+			        {y: {{ crime_percentrf }}, label: "Crime"},
+			        {y: {{ noncrime_percentrf }}, label: "Non Crime"}
+		            ]
+	            }]
+            });
+            chart3.render();
+        }
+	</script>
+<style>
+.btn{
+background-color: #34495E;
+color: white;
+}
+
+button {
+  background-color: #5D8896;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 3px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+  <title>The Daily Excelsior</title>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'crime_analysis:crime_home' %}"><b><font color="white">Home</font></b></a>
+    </li>
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="{% url 'crime_analysis:analyze_crime' %}" id="navbardrop" data-toggle="dropdown">
+          <b><font color="white">Newspaper</font></b>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeht' %}">Hindustan Times</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeasian' %}">Asian Age</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapedaily' %}">Daily Excelsior</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapedecc' %}">Deccan Chronicle</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeie' %}">Indian Express</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeit' %}">India Today</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapendtv' %}">NDTV</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapen18' %}">News 18</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeoneind' %}">One India</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeotlkind' %}">Outlook India</a>
+      </div>
+    </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'crime_analysis:about' %}"><b><font color="white">About</font></b></a>
+    </li>
+  </ul>
+</nav>
+
+
+<div class = "container">
+<br>
+<img src="{% static 'title_de.png' %}" alt="The Daily Excelsior" height="50px" width="300px">
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper10.png' %}" alt="The Daily Excelsior" height="150px" width="500px">
+	<br><br><br>
+		<p class="text-justify">The Daily Excelsior is an English-language newspaper published in Jammu, a city in the Indian state of Jammu and Kashmir. It was established by S. D. Rohmetra. The newspaper has been in publication since 1 January 1965. Its current editors are Kamal Rohmetra and Neeraj Rohmetra. Daily Excelsior is leading newspaper of Jammu region.
+</p>
+
+
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+  <form method='POST'> {% csrf_token %}
+       	{{ form.as_p }}
+		<button class="btn" name="go">Analyze Daily Excelsior</button>
+    </form>
+<br><br><br>
+	<font color = "#2B5664">
+		<table>
+			<tr>
+              <th><b>{{ Headlines }}</b></th>
+              <th><b>{{ nb }}</b></th>
+              <th><b>{{ svm }}</b></th>
+              <th><b>{{ rf }}</b></th>
+  			</tr>
+  			{% for head, ans1, ans2, ans3 in mapped %}
+  			<tr>
+      			<td><b>{{ head }}</b></td>
+      			<td><b>{{ ans1 }}</b></td>
+      			<td><b>{{ ans2 }}</b></td>
+      			<td><b>{{ ans3 }}</b></td>
+  			</tr>
+  			{% endfor %}
+		</table>
+	</font>
+    <br><br><br><br>
+	<div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <br><br><br><br>
+    <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <br><br><br><br>
+    <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <br>
+</body>
+</html>
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #5D8896;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #2B5664;
+}
+
+img {
+  float: left;
+}
+
+button {
+  background-color: #5D8896;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 3px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper10.png' %}" alt="Times Of India" height="150px" width="500px">
+	<br>
+	The Daily Excelsior is an English-language newspaper published in Jammu, a city in the Indian state of Jammu and Kashmir.</p>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<form method='POST'> {% csrf_token %}
+        {{ form.as_p }}
+		<button class="btn" name="go">Analyze Daily Excelsior</button>
+    </form>
+	<br><br><br><br><br><br>
+	<font color = "#2B5664">
+		<table>
+			<tr>
+    			<th>Headline</th>
+    			<th>Naive Bayes</th>
+    			<th>SVM</th>
+    			<th>Random Forest</th>
+  			</tr>
+  			{% for head, ans1, ans2, ans3 in mapped %}
+  			<tr>
+      			<td><b>{{ head }}</b></td>
+      			<td><b>{{ ans1 }}</b></td>
+      			<td><b>{{ ans2 }}</b></td>
+      			<td><b>{{ ans3 }}</b></td>
+  			</tr>
+  			{% endfor %}
+		</table>
+	</font>
+</body>
+</html>-->

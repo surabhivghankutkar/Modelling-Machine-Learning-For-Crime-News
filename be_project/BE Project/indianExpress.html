@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="css/ct-navbar.css" rel="stylesheet" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/ct-navbar.js"></script>
+    <title>Indian Express</title>
+
+
+<style>
+.btn{
+background-color: #34495E;
+color: white;
+}
+
+</style>
+
+
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="home.html"><b><font color="white">Home</font></b></a>
+    </li>
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="{% url 'crime_analysis:analyze_crime' %}" id="navbardrop" data-toggle="dropdown">
+          <b><font color="white">Newspaper</font></b>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeht' %}">Hindustan Times</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeasian' %}">Asian Age</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapedaily' %}">Daily Excelsior</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapedecc' %}">Deccan Chronicle</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeie' %}">Indian Express</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeit' %}">India Today</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapendtv' %}">NDTV</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapen18' %}">News 18</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeoneind' %}">One India</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeotlkind' %}">Outlook India</a>
+      </div>
+    </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'crime_analysis:about' %}"><b><font color="white">About</font></b></a>
+    </li>
+  </ul>
+</nav>
+
+
+<div class = "container">
+<br>
+<img src="title_ie.png" alt="The Daily Excelsior" height="50px" width="320px">
+<br><br>
+
+
+	<p class="text-justify">The Indian Express is an English-language Indian daily newspaper. It is published in Mumbai by Indian Express Group. In 1999, eight years after the group's founder Ramnath Goenka's death in 1991, the group was split between the family members. The southern editions took the name The New Indian Express, while the northern editions, based in Mumbai, retained the original Indian Express name, with "The" prefixed to the title.</p>
+<p class="text-justify">
+The Indian Express is published at eleven locations — Delhi, Jaipur, Mumbai, Nagpur, Pune, Kolkata, Vadodara, Chandigarh, Lucknow, Ahmedabad and Tirupati.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="paper2.png" alt="Indian Express" height="150px" width="500px">
+	<br><br><br>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" class="btn" data-toggle="collapse" data-target="#demo">Analyze Indian Express</button>
+  <div id="demo" class="collapse">
+  <br>
+  <br>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>Defaultson</td>
+        <td>def@somemail.com</td>
+      </tr>      
+      <tr class="success">
+        <td>Success</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr class="danger">
+        <td>Danger</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr class="info">
+        <td>Info</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+      <tr class="warning">
+        <td>Warning</td>
+        <td>Refs</td>
+        <td>bo@example.com</td>
+      </tr>
+      <tr class="active">
+        <td>Active</td>
+        <td>Activeson</td>
+        <td>act@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <button type="button" class="btn">Export to PDF</button>
+  
+  </div>
+<br>
+<br> 
+<br>
+<br> 
+
+</div>
+</body>
+</html>

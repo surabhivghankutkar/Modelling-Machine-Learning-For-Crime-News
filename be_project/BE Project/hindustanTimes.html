@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="css/ct-navbar.css" rel="stylesheet" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/ct-navbar.js"></script>
+   
+<style>
+.btn{
+background-color: #34495E;
+color: white;
+}
+</style>
+
+
+    <title>Hindustan Times</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="home.html"><b><font color="white">Home</font></b></a>
+    </li>
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="{% url 'crime_analysis:analyze_crime' %}" id="navbardrop" data-toggle="dropdown">
+          <b><font color="white">Newspaper</font></b>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="hindustanTimes.html">Hindustan Times</a>
+        <a class="dropdown-item" href="asianAge.html">Asian Age</a>
+        <a class="dropdown-item" href="dailyExcelsior.html">Daily Excelsior</a>
+          <a class="dropdown-item" href="deccanChronicle.html">Deccan Chronicle</a>
+          <a class="dropdown-item" href="indianExpress.html">Indian Express</a>
+          <a class="dropdown-item" href="indiaToday.html">India Today</a>
+          <a class="dropdown-item" href="ndtv.html">NDTV</a>
+          <a class="dropdown-item" href="news18.html">News 18</a>
+          <a class="dropdown-item" href="oneIndia.html">One India</a>
+          <a class="dropdown-item" href="outlookIndia.html">Outlook India</a>
+      </div>
+    </li>
+      <li class="nav-item">
+          <a class="nav-link" href="about.html"><b><font color="white">About</font></b></a>
+    </li>
+  </ul>
+</nav>
+
+
+<div class = "container">
+<br>
+<img src="title_ht.png" alt="Hindustan Times" height="50px" width="370px">
+<br><br>
+
+	<p class="text-justify">Hindustan Times is an Indian English-language daily newspaper founded in 1924 with roots in the Indian independence movement of the period ("Hindustan" being a historical name for India). Hindustan Times was inaugurated by Mahatma Gandhi and known for supporting the Congress party. The newspaper is owned by Congress Rajya Sabha M.P. Shobhana Bhartia.It is the flagship publication of HT Media, an entity controlled by the KK Birla family.</p>
+
+<p class="text-justify">Hindustan Times is one of the largest newspapers in India, by circulation. According to the Audit Bureau of Circulations, it has a circulation of 993,645 copies as of November 2017. The Indian Readership Survey 2014 revealed that HT is the second most widely read English newspaper in India after The Times of India. It is popular in North India, with simultaneous editions from New Delhi, Mumbai, Lucknow, Kolkata, Patna, Ranchi and Chandigarh.</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="paper1.png" alt="Hindustan Times" height="150px" width="750px">
+	<br><br><br>
+
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" id="btn-one" class="btn" data-toggle="collapse" data-target="#demo">Analyze Hindustan Times</button>
+  <div id="demo" class="collapse">
+  <br>
+  <br>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Default</td>
+        <td>Defaultson</td>
+        <td>def@somemail.com</td>
+      </tr>      
+      <tr class="success">
+        <td>Success</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr class="danger">
+        <td>Danger</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr class="info">
+        <td>Info</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+      <tr class="warning">
+        <td>Warning</td>
+        <td>Refs</td>
+        <td>bo@example.com</td>
+      </tr>
+      <tr class="active">
+        <td>Active</td>
+        <td>Activeson</td>
+        <td>act@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <button type="button" class="btn">Export to PDF</button>
+  
+  </div>
+	           
+ 
+  
+		
+
+<br><br><br><br>
+
+
+</div>
+</body>
+</html>

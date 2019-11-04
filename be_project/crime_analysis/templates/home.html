@@ -1,68 +1,158 @@
 {% load static from staticfiles %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <title>Crime Analysis</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="css/ct-navbar.css" rel="stylesheet" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/ct-navbar.js"></script>
 <style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #5D8896;
-}
-li {
-  float: left;
-}
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-li a:hover {
-  background-color: #2B5664;
-}
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
 </style>
 </head>
 <body>
 
-<ul>
-  <li><a href="{% url 'crime_analysis:crime_home' %}">Home</a></li>
-  <li><a href="{% url 'crime_analysis:about' %}">About</a></li>
-  <li><a href="{% url 'crime_analysis:analyze_crime' %}">Analyze</a></li>
-</ul>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'crime_analysis:crime_home' %}"><b><font color="white">Home</font></b></a>
+    </li>
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="{% url 'crime_analysis:analyze_crime' %}" id="navbardrop" data-toggle="dropdown">
+          <b><font color="white">Newspaper</font></b>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeht' %}">Hindustan Times</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeasian' %}">Asian Age</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapedaily' %}">Daily Excelsior</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapedecc' %}">Deccan Chronicle</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeie' %}">Indian Express</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeit' %}">India Today</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapendtv' %}">NDTV</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapen18' %}">News 18</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeoneind' %}">One India</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeotlkind' %}">Outlook India</a>
+      </div>
+    </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'crime_analysis:about' %}"><b><font color="white">About</font></b></a>
+    </li>
+  </ul>
+</nav>
 
-<font color="#2B5664" face="arial" >
+   <div id="demo" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'brain.gif' %}" alt="Los Angeles" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3 style="text-align:right;">Machine Can Understand
+		<br>
+		Language!
+		</h3>
 
-<h1>Crime!!!!!!</h1>
-	<p>Crime in India is very common and happens in many different ways.
-	Along with violent crimes (like homicide, robbery, and assault), and property crimes (like burglary, theft, motor vehicle theft, and arson), there are major problems with organized crime, the illegal drug trade, arms trafficking, corruption, and many other forms of crime.<p>
-
-    <h1>Crime...Report It,<br>
-    Don't Support It,<br>
-    Learn to Be Safe From It!</h1>
-    <br>
-
-            &nbsp;<a href="#"><img src="{% static 'crime1.jpg' %}" alt="crime" height="300px" width="650px"></a>
-
-             <a href="#"><img src="{% static 'crime2.jpg' %}" alt="crime" height="300px" width="650px"></a>
-
-            <!--
-
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="{% static 'pic1.jpg' %}" alt="Mumbai Mirror" height="100px" width="250px"></a>
-
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="{% static 'pic2.jpg' %}" alt="Times Of India" height="100px" width="250px"></a>
-
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="{% static 'pic3.jpg' %}" alt="Mumbai Mirror" height="100px" width="250px"></a>
-
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="{% static 'pic4.jpg' %}" alt="Times Of India" height="100px" width="250px"></a>
-
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="{% static 'pic5.jpg' %}" alt="Mumbai Mirror" height="100px" width="250px"></a>
-
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="{% static 'pic1.jpg' %}" alt="Times Of India" height="100px" width="250px"></a>
-    -->
-	</font>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'gif1.gif' %}" alt="Chicago" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3 style="text-align:right;">
+		Machine Can Analyse!
+		</h3>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'gif2.gif' %}" alt="New York" width="1100" height="500">
+      <div class="carousel-caption">
+       <h3 style="text-align:right;">
+	   Experience Real Time <br>
+	   Classification
+	   <br>
+	   of News!
+		</h3>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
 
 </body>
 </html>
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Crime Analysis</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="css/ct-navbar.css" rel="stylesheet" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/ct-navbar.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'crime_analysis:crime_home' %}"><b><font color="white">Home</font></b></a>
+    </li>
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="{% url 'crime_analysis:analyze_crime' %}" id="navbardrop" data-toggle="dropdown">
+          <b><font color="white">Newspaper</font></b>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeht' %}">Hindustan Times</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeasian' %}">Asia Age</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapedaily' %}">Daily Excelsior</a>
+          <a class="dropdown-item" href="{% url 'crime_analysis:scrapedecc' %}">Deccan Chronicle</a>
+          <a class="dropdown-item" href="{% url 'crime_analysis:scrapeie' %}">Indian Express</a>
+          <a class="dropdown-item" href="{% url 'crime_analysis:scrapeit' %}">India Today</a>
+          <a class="dropdown-item" href="{% url 'crime_analysis:scrapendtv' %}">NDTV</a>
+          <a class="dropdown-item" href="{% url 'crime_analysis:scrapen18' %}">News 18</a>
+          <a class="dropdown-item" href="{% url 'crime_analysis:scrapeoneind' %}">One India</a>
+          <a class="dropdown-item" href="{% url 'crime_analysis:scrapeotlkind' %}">Outlook India</a>
+      </div>
+    </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'crime_analysis:about' %}"><b><font color="white">About</font></b></a>
+    </li>
+  </ul>
+</nav>
+<br>
+
+<div class="container">
+    <h1>Crime!!!!!!!!!!!!!!!!!!</h1>
+</div>
+
+</body>
+</html>-->

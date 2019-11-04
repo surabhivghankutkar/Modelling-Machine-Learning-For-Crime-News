@@ -10,3 +10,6 @@ class Data(models.Model):
     headline = models.CharField(max_length=100)
     summary = models.CharField(max_length=400)
     date_of_news = models.DateField(_("Date"), default=datetime.date.today)
+
+class ExportPDF(models.Model):
+    export_pdf = models.CharField(max_length=100)

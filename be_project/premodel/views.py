@@ -77,7 +77,7 @@ def premodel_home(requests):
         response = HttpResponse(content_type='application/pdf')
         response['Content-Disposition'] = 'attachment; filename=report.pdf'
         buff = io.BytesIO()
-        report_pdf = SimpleDocTemplate(buff, rightMargin=100, leftMargin=100, topMargin=100, bottomMargin=100, pagesize=letter)
+        report_pdf = SimpleDocTemplate(buff, pagesize=letter, leftMargin=72, rightMargin=72)
         elements = []
 
         data = []

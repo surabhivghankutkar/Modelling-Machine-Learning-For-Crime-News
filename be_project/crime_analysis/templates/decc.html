@@ -1,0 +1,188 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="css/ct-navbar.css" rel="stylesheet" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/ct-navbar.js"></script>
+  <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+	<script>
+		window.onload = function() {
+            var chart1 = new CanvasJS.Chart("chartContainer1", {
+                animationEnabled: true, title: {
+                    text: "Naive Bayes Classification"
+	                },
+	            data: [{
+		            type: "pie",
+		            startAngle: 240,
+		            yValueFormatString: "##0.00\"%\"",
+		            indexLabel: "{label} {y}",
+		        dataPoints: [
+			        {y: {{ crime_percentnb }}, label: "Crime"},
+			        {y: {{ noncrime_percentnb }}, label: "Non Crime"}
+		            ]
+	            }]
+            });
+            chart1.render();
+
+            var chart2 = new CanvasJS.Chart("chartContainer2", {
+                animationEnabled: true, title: {
+                    text: "SVM Classification"
+	                },
+	            data: [{
+		            type: "pie",
+		            startAngle: 240,
+		            yValueFormatString: "##0.00\"%\"",
+		            indexLabel: "{label} {y}",
+		        dataPoints: [
+			        {y: {{ crime_percentsvm }}, label: "Crime"},
+			        {y: {{ noncrime_percentsvm }}, label: "Non Crime"}
+		            ]
+	            }]
+            });
+            chart2.render();
+
+            var chart3 = new CanvasJS.Chart("chartContainer3", {
+                animationEnabled: true, title: {
+                    text: "Random Forest Classification"
+	                },
+	            data: [{
+		            type: "pie",
+		            startAngle: 240,
+		            yValueFormatString: "##0.00\"%\"",
+		            indexLabel: "{label} {y}",
+		        dataPoints: [
+			        {y: {{ crime_percentrf }}, label: "Crime"},
+			        {y: {{ noncrime_percentrf }}, label: "Non Crime"}
+		            ]
+	            }]
+            });
+            chart3.render();
+        }
+	</script>
+<style>
+.btn{
+background-color: #34495E;
+color: white;
+}
+
+button {
+  background-color: #5D8896;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 3px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+  <title>Deccan Chronicle</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'crime_analysis:crime_home' %}"><b><font color="white">Home</font></b></a>
+    </li>
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="{% url 'crime_analysis:analyze_crime' %}" id="navbardrop" data-toggle="dropdown">
+          <b><font color="white">Newspaper</font></b>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeht' %}">Hindustan Times</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeasian' %}">Asian Age</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapedaily' %}">Daily Excelsior</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapedecc' %}">Deccan Chronicle</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeie' %}">Indian Express</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeit' %}">India Today</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapendtv' %}">NDTV</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapen18' %}">News 18</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeoneind' %}">One India</a>
+        <a class="dropdown-item" href="{% url 'crime_analysis:scrapeotlkind' %}">Outlook India</a>
+      </div>
+    </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'crime_analysis:about' %}"><b><font color="white">About</font></b></a>
+    </li>
+  </ul>
+</nav>
+
+<div class = "container">
+<br>
+<img src="{% static 'title_dc.png' %}" alt="Deccan Chronicle" height="50px" width="300px">
+<br><br>
+
+	<p class="text-justify">Deccan Chronicle is an Indian English-language daily newspaper founded by Rajagopal Mudaliar in the 1930s & currently owned by SREI. It is published in Hyderabad, Telangana, by Deccan Chronicle Holdings Limited (DCHL). The newspaper's name derives from the originating place, the Deccan regions of India. Deccan Chronicle has eight editions in Andhra Pradesh and Telangana. They also publish from Chennai, Bengaluru and Kochi.
+
+The DCHL is owned by SREI. </p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper6.png' %}" alt="Hindustan Times" height="150px" width="750px">
+	<br><br><br>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+<form method='POST'> {% csrf_token %}
+       	{{ form.as_p }}
+		<button class="btn" name="go">Analyze Deccan Chronicle</button>
+    </form>
+	<br><br><br>
+	<font color = "#2B5664">
+		<table>
+			<tr>
+              <th><b>{{ Headlines }}</b></th>
+              <th><b>{{ nb }}</b></th>
+              <th><b>{{ svm }}</b></th>
+              <th><b>{{ rf }}</b></th>
+  			</tr>
+  			{% for head, ans1, ans2, ans3 in mapped %}
+  			<tr>
+      			<td><b>{{ head }}</b></td>
+      			<td><b>{{ ans1 }}</b></td>
+      			<td><b>{{ ans2 }}</b></td>
+      			<td><b>{{ ans3 }}</b></td>
+  			</tr>
+  			{% endfor %}
+		</table>
+	</font>
+    <br><br><br><br>
+	<div id="chartContainer1" style="height: 300px; width: 100%;"></div>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <br><br><br><br>
+    <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <br><br><br><br>
+    <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <br>
+</body>
+</html>

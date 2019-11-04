@@ -1,0 +1,252 @@
+
+
+
+{% load static from staticfiles %}
+{% block content %}
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="css/ct-navbar.css" rel="stylesheet" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/ct-navbar.js"></script>
+
+<style>
+.btn{
+background-color: #34495E;
+color: white;
+}
+</style>
+
+
+    <title>Hindustan Times</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="home.html"><b><font color="white">Home</font></b></a>
+    </li>
+     <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="{% url 'crime_analysis:analyze_crime' %}" id="navbardrop" data-toggle="dropdown">
+          <b><font color="white">Newspaper</font></b>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="hindustanTimes.html">Hindustan Times</a>
+        <a class="dropdown-item" href="asianAge.html">Asian Age</a>
+        <a class="dropdown-item" href="dailyExcelsior.html">Daily Excelsior</a>
+          <a class="dropdown-item" href="deccanChronicle.html">Deccan Chronicle</a>
+          <a class="dropdown-item" href="indianExpress.html">Indian Express</a>
+          <a class="dropdown-item" href="indiaToday.html">India Today</a>
+          <a class="dropdown-item" href="ndtv.html">NDTV</a>
+          <a class="dropdown-item" href="news18.html">News 18</a>
+          <a class="dropdown-item" href="oneIndia.html">One India</a>
+          <a class="dropdown-item" href="outlookIndia.html">Outlook India</a>
+      </div>
+    </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'crime_analysis:about' %}"><b><font color="white">About</font></b></a>
+    </li>
+  </ul>
+</nav>
+
+
+<div class = "container">
+<br>
+<img src="{% static 'title_ht.png' %}" alt="Hindustan Times" height="50px" width="370px">
+<br><br>
+
+	<p class="text-justify">Hindustan Times is an Indian English-language daily newspaper founded in 1924 with roots in the Indian independence movement of the period ("Hindustan" being a historical name for India). Hindustan Times was inaugurated by Mahatma Gandhi and known for supporting the Congress party. The newspaper is owned by Congress Rajya Sabha M.P. Shobhana Bhartia.It is the flagship publication of HT Media, an entity controlled by the KK Birla family.</p>
+
+<p class="text-justify">Hindustan Times is one of the largest newspapers in India, by circulation. According to the Audit Bureau of Circulations, it has a circulation of 993,645 copies as of November 2017. The Indian Readership Survey 2014 revealed that HT is the second most widely read English newspaper in India after The Times of India. It is popular in North India, with simultaneous editions from New Delhi, Mumbai, Lucknow, Kolkata, Patna, Ranchi and Chandigarh.</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper1.png' %}" alt="Hindustan Times" height="150px" width="750px">
+	<br><br><br>
+
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+  <form method='POST'> {% csrf_token %}
+    {{ form.as_p }}
+    <button type="button" name="go" id="btn-one" class="btn" data-toggle="collapse" data-target="#demo">Analyze Hindustan Times</button>
+  </form>
+  <div id="demo" class="collapse">
+  <br>
+  <br>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Headline</th>
+    	<th>Naive Bayes</th>
+    	<th>SVM</th>
+    	<th>Random Forest</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for head, ans1, ans2, ans3 in mapped %}
+  	  <tr>
+        <td><b>{{ head }}</b></td>
+      	<td><b>{{ ans1 }}</b></td>
+      	<td><b>{{ ans2 }}</b></td>
+      	<td><b>{{ ans3 }}</b></td>
+  	  </tr>
+  	  {% endfor %}
+    </tbody>
+  </table>
+
+
+  <button type="button" class="btn">Export to PDF</button>
+
+  </div>
+
+<br><br><br><br>
+
+</div>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+	<script>
+		window.onload = function() {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: "Desktop Search Engine Market Share - 2016"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 240,
+		yValueFormatString: "##0.00\"%\"",
+		indexLabel: "{label} {y}",
+		dataPoints: [
+			{y: 75, label: "Crime"},
+			{y: 25, label: "Non Crime"}
+		]
+	}]
+});
+chart.render();
+
+}
+	</script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #5D8896;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #2B5664;
+}
+
+img {
+  float: left;
+}
+
+button {
+  background-color: #5D8896;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 3px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p><img src="{% static 'paper1.png' %}" alt="Mumbai Mirror" height="150px" width="500px">
+	<br>
+	HT Media found its beginning in 1924 when its flagship newspaper, Hindustan Times was inaugurated by Mahatma Gandhi. HT Media has today grown to become one of India’s largest media companies.</p>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<form method='POST'> {% csrf_token %}
+       	{{ form.as_p }}
+		<button class="btn" name="go">Analyze Hindustan Times</button>
+    </form>
+	<br><br><br><br><br><br>
+	<font color = "#2B5664">
+		<table>
+			<tr>
+    			<th>Headline</th>
+    			<th>Naive Bayes</th>
+    			<th>SVM</th>
+    			<th>Random Forest</th>
+  			</tr>
+  			{% for head, ans1, ans2, ans3 in mapped %}
+  			<tr>
+      			<td><b>{{ head }}</b></td>
+      			<td><b>{{ ans1 }}</b></td>
+      			<td><b>{{ ans2 }}</b></td>
+      			<td><b>{{ ans3 }}</b></td>
+  			</tr>
+  			{% endfor %}
+		</table>
+	</font>
+	<br><br><br><br><br><br>
+	<h1>Testing</h1>
+	Crime Percentage = {{ crime_percent }}<br>
+	Non Crime Percentage = {{ noncrime_percent }}
+    {% for head, ans1, ans2, ans3 in mapped %}
+      {{ head }}
+      {{ ans1 }}
+      {{ ans2 }}
+      {{ ans3 }}
+    {% endfor %}
+	<br><br><br><br><br><br>
+	<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
+{% endblock content %}
